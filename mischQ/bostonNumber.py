@@ -20,3 +20,6 @@ def isBoston(N):
     return primeFactorsSum(N) == sumOfDigits(N)
 
 print(isBoston(N))
+for i in range(100):
+    if isBoston(i):
+        print(i)
