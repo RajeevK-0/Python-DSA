@@ -53,3 +53,16 @@ class Dog(Animal):
 my_cat = Cat()
 my_cat.speak() # Output: Meow (overrides parent method)
 
+##polymorphism
+animals = [Cat(), Dog(), Animal()]
+
+for animal in animals:
+    animal.speak() 
+    # Output:
+    # Meow
+    # Woof
+    # Animal makes a sound
+
+# p = person()
+# p.greet()
+# p.prin()
