@@ -15,7 +15,26 @@ class pr(person):
 prs = pr()
 prs.greet()
 
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner       # Public
+        self.__balance = balance # Private (note the double underscore)
 
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Added Rs.{amount}")
+
+    def get_balance(self):
+        # We provide a controlled way to read the private data
+        return self.__balance
+
+account = BankAccount("Raj", 1000)
+account.deposit(500)
+
+# print(account.__balance) # This would raise an AttributeError
+print(account.get_balance()) # Output: 1500
+print(account.owner)
 # p = person()
 # p.greet()
 # p.prin()
