@@ -63,6 +63,25 @@ for animal in animals:
     # Woof
     # Animal makes a sound
 
+
+##Abstraction
+from abc import ABC, abstractmethod
+
+class Shape(ABC): # Inherits from ABC (Abstract Base Class)
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+# shape = Shape() # Error! Cannot instantiate an abstract class
+circle = Circle(5)
+print(circle.area()) # Output: 78.5
 # p = person()
 # p.greet()
 # p.prin()
