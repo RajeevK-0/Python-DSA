@@ -18,3 +18,4 @@ class employee:
         return self.salary
 
 e1 = employee(1234,'rajeev',50000)
+print(e1.getName())
