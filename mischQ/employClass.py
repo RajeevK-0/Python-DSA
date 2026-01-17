@@ -18,4 +18,8 @@ class employee:
         return self.salary
 
 e1 = employee(1234,'rajeev',50000)
-print(e1.getName())
+print(e1.getName(),e1.getEmpid(),e1.getSalary())
+e2 = employee()
+e2.setEmpid(2143)
+e2.setName('gita')
+print(e2.getName(),e2.getEmpid())
