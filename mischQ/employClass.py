@@ -4,12 +4,12 @@ class employee:
         self.empid = empid  
         self.name = name
         self.salary = salary
-    # def setEmpid(self,empid):
-    #     self.empid = empid
-    # def setName(self,name):
-    #     self.name = name
-    # def setSalary(self,salary):
-    #     self.salary = salary
+    def setEmpid(self,empid):
+        self.empid = empid
+    def setName(self,name):
+        self.name = name
+    def setSalary(self,salary):
+        self.salary = salary
     def getEmpid(self):
         return self.empid
     def getName(self):
@@ -19,9 +19,9 @@ class employee:
 
 e1 = employee(1234,'rajeev',50000)
 print(e1.getName(),e1.getEmpid(),e1.getSalary())
-# e2 = employee()
-# e2.setEmpid(2143)
-# e2.setName('gita')
-# print(e2.getName(),e2.getEmpid())
-# e2.setSalary(50000)
-# print(e2.getSalary())
+e2 = employee()
+e2.setEmpid(2143)
+e2.setName('gita')
+print(e2.getName(),e2.getEmpid())
+e2.setSalary(50000)
+print(e2.getSalary())
