@@ -84,24 +84,24 @@ class SLL:
         #     if self.next() == element.item():
         #         return self.next()
         # self.next() ==  temp
-    # def __iter__(self):
-    #     start = self.start
-    #     while start is not None:
-    #         yield start.item
-    #         start = start.next
     def __iter__(self):
-        return sllItrator(self.start)
-class sllItrator:
-    def __init__(self,start):
-        self.current = start
-    def __iter__(self):
-        return self
-    def __next__(self):
-        if not self.current:
-            raise StopIteration
-        data = self.current.item
-        self.current = self.current.next
-        return data
+        start = self.start
+        while start is not None:
+            yield start.item
+            start = start.next
+#     def __iter__(self):
+#         return sllItrator(self.start)
+# class sllItrator:
+#     def __init__(self,start):
+#         self.current = start
+#     def __iter__(self):
+#         return self
+#     def __next__(self):
+#         if not self.current:
+#             raise StopIteration
+#         data = self.current.item
+#         self.current = self.current.next
+#         return data
 myList = SLL()
 myList.insertAtStart(10)
 myList.insertAtStart(20)
