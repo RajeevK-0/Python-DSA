@@ -87,6 +87,8 @@ myList.insertAtLast(3)
 myList.insertAtLast(2)
 myList.insertAtLast(0)
 myList.insertAfter(myList.search(10),5)
+myList.delFirst()
+myList.delLast()
 myList.printDll()
 print('*'*20)
 for i in myList:
