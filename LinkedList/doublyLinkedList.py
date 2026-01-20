@@ -14,12 +14,13 @@ class doublyLinkedList:
     def insertAtLast(self,item):
         temp = self.start
         while temp is not None:
-            if temp.next == None:
+            if temp == None or temp.next == None:
                 n = Node(item=item,next=None)
                 temp.next = n
                 n.prev = temp
                 break
             temp = temp.next
+
     def insertAfter(self,temp,item):
         n = Node(item=item)
         x = self.start
@@ -42,6 +43,7 @@ class doublyLinkedList:
             if temp.item == aim:
                 return temp
             temp = temp.next
+        return None
 
     def delFirst(self):
         if self.start is None:
@@ -77,20 +79,11 @@ class doublyLinkedList:
             temp = temp.next
 
 myList = doublyLinkedList()
-myList.insertAtstart(10)
+
 myList.insertAtstart(20)
 myList.insertAtstart(30)
 print(myList.isEmpty())
-print()
-myList.insertAtstart(50)
-myList.insertAtLast(3)
-myList.insertAtLast(2)
-myList.insertAtLast(0)
-myList.insertAfter(myList.search(10),5)
-myList.delFirst()
 myList.delLast()
-myList.delNode(20)
-print()
 myList.printDll()
 print('*'*20)
 for i in myList:
