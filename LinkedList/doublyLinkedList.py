@@ -10,7 +10,6 @@ class doublyLinkedList:
         n = Node(item=item,next=self.start)
         if self.start is not None:
             self.start.prev = n
-        
         self.start = n 
         
     def isEmpty(self):
