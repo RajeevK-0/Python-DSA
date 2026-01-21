@@ -8,7 +8,11 @@ class doublyLinkedList:
         self.start = start
     def insertAtstart(self,item):
         n = Node(item=item,next=self.start)
-        self.start = n
+        if self.start is not None:
+            self.start.prev = n
+        
+        self.start = n 
+        
     def isEmpty(self):
         return True if self.start == None else False
     def insertAtLast(self,item):
@@ -67,36 +71,51 @@ class doublyLinkedList:
                     temp.next = None
                 temp = temp.next
     
-    def delNode(self, item):
+    def delNode(self,item):
         if self.start is None:
-            return  # Use return to exit immediately
-
-        aim = self.search(item)
-        
-        # SAFETY CHECK: If item is not found, stop here to avoid crashes
-        if aim is None:
-            return 
-
-        # Case 1: Deleting a Middle Node
-        # We check if it has neighbors on BOTH sides
-        if aim.prev is not None and aim.next is not None:
-            n = aim.next
-            p = aim.prev
-            # Link previous node to next, and next node to previous
-            n.prev = p
-            p.next = n
-                
-        # Case 2: Deleting the Head Node
-        elif aim.prev is None:
-            self.start = aim.next
-            # FIX: If there is a new head, ensure its 'prev' is None
-            if self.start is not None:
-                self.start.prev = None
-
-        # Case 3: Deleting the Tail Node
+            return
         else:
-            # We know aim.prev exists (not head) and aim.next is None (is tail)
-            aim.prev.next = None
+            temp = self.start
+            while temp is not None:
+                if temp.item == item:
+                    if temp.next is not None:
+                        temp.next.prev = temp.prev
+                    if temp.prev is not None:
+                        temp.prev.next = temp.next
+                    else:
+                        self.start = temp.next
+                    break
+                temp = temp.next
+    # def delNode(self, item):
+    #     if self.start is None:
+    #         return  # Use return to exit immediately
+
+    #     aim = self.search(item)
+        
+    #     # SAFETY CHECK: If item is not found, stop here to avoid crashes
+    #     if aim is None:
+    #         return 
+
+    #     # Case 1: Deleting a Middle Node
+    #     # We check if it has neighbors on BOTH sides
+    #     if aim.prev is not None and aim.next is not None:
+    #         n = aim.next
+    #         p = aim.prev
+    #         # Link previous node to next, and next node to previous
+    #         n.prev = p
+    #         p.next = n
+                
+    #     # Case 2: Deleting the Head Node
+    #     elif aim.prev is None:
+    #         self.start = aim.next
+    #         # FIX: If there is a new head, ensure its 'prev' is None
+    #         if self.start is not None:
+    #             self.start.prev = None
+
+    #     # Case 3: Deleting the Tail Node
+    #     else:
+    #         # We know aim.prev exists (not head) and aim.next is None (is tail)
+    #         aim.prev.next = None
     
     
     # def delNode(self,item):
@@ -128,13 +147,14 @@ class doublyLinkedList:
             temp = temp.next
 
 myList = doublyLinkedList()
+print(myList.isEmpty())
 myList.insertAtstart(40)
 myList.insertAtstart(30)
 myList.insertAtstart(20)
 myList.insertAtstart(10)
 myList.insertAtstart(2)
 print(myList.isEmpty())
-myList.delNode(20)
+myList.delNode(10)
 print()
 # myList.delLast()
 myList.printDll()
