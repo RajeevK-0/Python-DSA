@@ -21,24 +21,50 @@ class circularLinkedlist:
             n.next = n
     
     def insertAtLast(self,item):
-        t= self.last.next
-        n= Node(item=item)
-        self.last.next = n
-        n.next = t
-        self.last = n
+        if self.last is not None:
+            t= self.last.next
+            n= Node(item=item)
+            self.last.next = n
+            n.next = t
+            self.last = n
+        else:
+            self.last = n
+            n.next = n   
     
     def search(self,aim):
-        temp = self.last.next
-        while temp != self.last:
-            if temp.item == aim:
-                return temp
-            temp = temp.next
+        if self.last is not None:
+            temp = self.last.next
+            while temp != self.last:
+                if temp.item == aim:
+                    return temp
+                temp = temp.next
+        
+    def insertAfter(self,target,aim):
+        n = Node(item=aim)
+        if self.last is not None:
+            a = self.search(target)
+            if a != self.last:
+                temp = a.next
+                a.next = n
+                n.next = temp
+            else:
+                temp = a.next
+                a.next = n
+                n.next = temp
+                self.last = n
     
     def printCll(self):
         while self.last.next != self.last:
             print(self.last.next.item,end=' ')
             self.last.next = self.last.next.next
         print(self.last.item,end=' ')
+
+    def __iter__(self):
+        t = self.last
+        while t.next != t:
+            yield t.next
+            t = t.next
+
 mylist = circularLinkedlist()
 mylist.insertAtStart(5)
 mylist.insertAtStart(1)
