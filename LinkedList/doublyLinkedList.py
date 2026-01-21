@@ -56,21 +56,70 @@ class doublyLinkedList:
     def delLast(self):
         if self.start is None:
             print('DLL empty')
+
+        elif self.start.next == None:
+            self.start = None
         else:
             temp = self.start.next
             while temp is not None:
                 if temp.next.next == None:
-                    temp.next.prev = None
+                    # temp.next.prev = None
                     temp.next = None
                 temp = temp.next
     
-    def delNode(self,item):
-        if self.start is not None:
-            aim = self.search(item)
-            temp = aim.prev
-            connect = aim.next
-            temp.next = connect
-            connect.prev = temp
+    def delNode(self, item):
+        if self.start is None:
+            return  # Use return to exit immediately
+
+        aim = self.search(item)
+        
+        # SAFETY CHECK: If item is not found, stop here to avoid crashes
+        if aim is None:
+            return 
+
+        # Case 1: Deleting a Middle Node
+        # We check if it has neighbors on BOTH sides
+        if aim.prev is not None and aim.next is not None:
+            n = aim.next
+            p = aim.prev
+            # Link previous node to next, and next node to previous
+            n.prev = p
+            p.next = n
+                
+        # Case 2: Deleting the Head Node
+        elif aim.prev is None:
+            self.start = aim.next
+            # FIX: If there is a new head, ensure its 'prev' is None
+            if self.start is not None:
+                self.start.prev = None
+
+        # Case 3: Deleting the Tail Node
+        else:
+            # We know aim.prev exists (not head) and aim.next is None (is tail)
+            aim.prev.next = None
+    
+    
+    # def delNode(self,item):
+    #     if self.start is None:
+    #         pass
+    #     else:
+    #         aim = self.search(item)
+    #         if aim and aim.prev is not None and aim.next is not None:
+    #             n = aim.next
+    #             p = aim.prev
+    #             n.prev,p.next = p,n
+    #         elif aim.prev == None:
+    #             self.start = aim.next
+    #         else:
+    #             aim.prev.next = None
+                # else:
+                #     aim.prev.next = None
+        # if self.start is not None:
+        #     aim = self.search(item)
+        #     temp = aim.prev
+        #     connect = aim.next
+        #     temp.next = connect
+        #     connect.prev = temp
 
     def __iter__(self):
         temp = self.start
@@ -79,12 +128,18 @@ class doublyLinkedList:
             temp = temp.next
 
 myList = doublyLinkedList()
-
-myList.insertAtstart(20)
+myList.insertAtstart(40)
 myList.insertAtstart(30)
+myList.insertAtstart(20)
+myList.insertAtstart(10)
+myList.insertAtstart(2)
 print(myList.isEmpty())
-myList.delLast()
+myList.delNode(20)
+print()
+# myList.delLast()
 myList.printDll()
-print('*'*20)
-for i in myList:
-    print(i,end=' ')
+# print(myList.search(20).item)
+# myList.delNode(20)
+# print('*'*20)
+# for i in myList:
+#     print(i,end=' ')
