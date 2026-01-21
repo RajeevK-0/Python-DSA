@@ -84,7 +84,18 @@ class circularLinkedlist:
                 self.last = n
     
     def delItem(self, item):
-        pass
+        if self.last is not None:
+            if self.last.item == item:
+                self.delLast()
+            elif self.last.next.item== item:
+                self.delFirst()
+            else:
+                temp = self.last.next
+                while temp != self.last:
+                    if temp.next.item == item:
+                        temp.next = temp.next.next
+                    temp = temp.next
+                
     def __iter__(self):
         t = self.last
         while t.next != t:
@@ -98,4 +109,7 @@ mylist.insertAtStart(9)
 mylist.insertAtStart(10)
 mylist.insertAtLast(6)
 mylist.printCll()
+print()
 print(mylist.search(6))
+mylist.delItem(10)
+mylist.printCll()
