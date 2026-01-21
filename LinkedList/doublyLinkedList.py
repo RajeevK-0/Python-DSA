@@ -71,21 +71,21 @@ class doublyLinkedList:
                     temp.next = None
                 temp = temp.next
     
-    def delNode(self,item):
-        if self.start is None:
-            return
-        else:
-            temp = self.start
-            while temp is not None:
-                if temp.item == item:
-                    if temp.next is not None:
-                        temp.next.prev = temp.prev
-                    if temp.prev is not None:
-                        temp.prev.next = temp.next
-                    else:
-                        self.start = temp.next
-                    break
-                temp = temp.next
+    # def delNode(self,item):
+    #     if self.start is None:
+    #         return
+    #     else:
+    #         temp = self.start
+    #         while temp is not None:
+    #             if temp.item == item:
+    #                 if temp.next is not None:
+    #                     temp.next.prev = temp.prev
+    #                 if temp.prev is not None:
+    #                     temp.prev.next = temp.next
+    #                 else:
+    #                     self.start = temp.next
+    #                 break
+    #             temp = temp.next
     # def delNode(self, item):
     #     if self.start is None:
     #         return  # Use return to exit immediately
@@ -118,19 +118,19 @@ class doublyLinkedList:
     #         aim.prev.next = None
     
     
-    # def delNode(self,item):
-    #     if self.start is None:
-    #         pass
-    #     else:
-    #         aim = self.search(item)
-    #         if aim and aim.prev is not None and aim.next is not None:
-    #             n = aim.next
-    #             p = aim.prev
-    #             n.prev,p.next = p,n
-    #         elif aim.prev == None:
-    #             self.start = aim.next
-    #         else:
-    #             aim.prev.next = None
+    def delNode(self,item):
+        if self.start is None:
+            pass
+        else:
+            aim = self.search(item)
+            if aim and aim.prev is not None and aim.next is not None:
+                n = aim.next
+                p = aim.prev
+                n.prev,p.next = p,n
+            elif aim.prev == None:
+                self.start = aim.next
+            else:
+                aim.prev.next = None
                 # else:
                 #     aim.prev.next = None
         # if self.start is not None:
