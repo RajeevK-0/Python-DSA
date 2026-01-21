@@ -38,6 +38,9 @@ class circularLinkedlist:
                 if temp.item == aim:
                     return temp
                 temp = temp.next
+            if temp.item == aim:
+                return temp
+            return None
         
     def insertAfter(self,target,aim):
         n = Node(item=aim)
@@ -54,11 +57,34 @@ class circularLinkedlist:
                 self.last = n
     
     def printCll(self):
-        while self.last.next != self.last:
-            print(self.last.next.item,end=' ')
-            self.last.next = self.last.next.next
-        print(self.last.item,end=' ')
+        if self.last is not None:
+            while self.last.next != self.last:
+                print(self.last.next.item,end=' ')
+                self.last.next = self.last.next.next
+            print(self.last.item,end=' ')
 
+    def delFirst(self):
+        if self.last is not None:
+            if self.last.next == self.last:
+                self.last = None
+            else:
+                t = self.last
+                t.next = t.next.next
+
+    def delLast(self):
+        if self.last is not None:
+            if self.last.next == self.last:
+                self.last = None
+            else:
+                temp = self.last
+                while temp.next != self.last:
+                    n = temp
+                    temp = temp.next
+                n.next = temp.next
+                self.last = n
+    
+    def delItem(self, item):
+        pass
     def __iter__(self):
         t = self.last
         while t.next != t:
