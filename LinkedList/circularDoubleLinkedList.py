@@ -61,6 +61,46 @@ class doublyCircularLinkedList:
             print(temp.item,end=' ')
             temp = temp.next
         print(temp.item)
+
+    def delFirst(self):
+        if self.start is not None:
+            if self.start.next == self.start:
+                self.start = None
+            else:
+                self.start.next.prev = self.start.prev
+                self.start.prev.next = self.start.next
+                self.start = self.start.next
+
+    def delLast(self):
+        if self.start is not None:
+            if self.start == self.start.next:
+                self.start = None
+            else:
+                self.start.prev.prev.next = self.start
+                self.start.prev = self.start.prev.prev
+
+    def delNode(self,item):
+        if self.start is not None:
+            if self.start.next == self.start:
+                if self.start.item == item:
+                    self.start == None
+            elif self.start.item == item:
+                self.delFirst()
+            elif self.start.prev.item == item:
+                self.delLast()
+            else:
+                a = self.search(item)
+                if a:
+                    a.prev.next = a.next
+                    a.next.prev = a.prev
+    
+    def __iter__(self):
+        if self.start is not None:
+            temp = self.start
+            while temp.next != self.start:
+                yield temp.item
+                temp = temp.next
+            yield temp.item 
 mylist = doublyCircularLinkedList()
 mylist.insertAtStart(1)
 mylist.insertAtStart(12)
@@ -68,4 +108,10 @@ mylist.insertAtStart(3)
 mylist.insertAtStart(4)
 mylist.insertAtEnd(13)
 mylist.insertAfter(13,5)
+# mylist.delFirst()
+# mylist.delLast()
+mylist.delNode(1)
 mylist.printList()
+print('*'*30)
+for x in mylist:
+    print(x,end=' ')
