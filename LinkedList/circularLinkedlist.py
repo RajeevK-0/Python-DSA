@@ -58,9 +58,10 @@ class circularLinkedlist:
     
     def printCll(self):
         if self.last is not None:
-            while self.last.next != self.last:
-                print(self.last.next.item,end=' ')
-                self.last.next = self.last.next.next
+            temp = self.last.next
+            while temp != self.last:
+                print(temp.item,end=' ')
+                temp = temp.next
             print(self.last.item,end=' ')
 
     def delFirst(self):
@@ -76,12 +77,11 @@ class circularLinkedlist:
             if self.last.next == self.last:
                 self.last = None
             else:
-                temp = self.last
+                temp = self.last.next
                 while temp.next != self.last:
-                    n = temp
                     temp = temp.next
-                n.next = temp.next
-                self.last = n
+                temp.next = temp.next.next
+                self.last = temp
     
     def delItem(self, item):
         if self.last is not None:
@@ -92,15 +92,21 @@ class circularLinkedlist:
             else:
                 temp = self.last.next
                 while temp != self.last:
+                    if temp.next == self.last:
+                        if temp.next.item == item:
+                            self.delLast()
+                        break
                     if temp.next.item == item:
                         temp.next = temp.next.next
+                        break
                     temp = temp.next
                 
     def __iter__(self):
         t = self.last
-        while t.next != t:
-            yield t.next
+        while t.next != self.last:
+            yield t.next.item
             t = t.next
+        yield self.last.item
 
 mylist = circularLinkedlist()
 mylist.insertAtStart(5)
@@ -111,5 +117,5 @@ mylist.insertAtLast(6)
 mylist.printCll()
 print()
 print(mylist.search(6))
-mylist.delItem(10)
+mylist.delItem(6)#last
 mylist.printCll()
