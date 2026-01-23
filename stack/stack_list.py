@@ -6,13 +6,21 @@ class stack:
     def push(self,element):
         self.list.append(element)
     def pop(self):
-        self.list.remove(self.list[len(self.list)-1])
+        if not self.isEmpty():
+            self.list.pop()
+        else:
+            raise IndexError('list is empty')
     def peek(self):
-        return self.list[len(self.list)-1]
+        if not self.isEmpty():    
+            return self.list[-1]
+        else:
+            raise IndexError('list is empty')
     def size(self):
         return len(self.list)
     
 s = stack()
+# s.peek()
+# s.pop()
 print(s.isEmpty())
 s.push(10)
 s.push(1)
