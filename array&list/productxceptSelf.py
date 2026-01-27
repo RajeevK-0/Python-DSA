@@ -10,3 +10,20 @@ class Solution:
             ans[j] *= r
             r *= nums[j]
         return ans
+    # for  i in nums:
+        #     if prefix == []:
+        #         prefix.append(1)
+        #     else:
+        #         t=1
+        #         for j in prefix:
+        #             t = t*j
+        #         prefix.append(t)
+        # for i in range(len(nums),0,-1):
+        #     if suffix = []:
+        #         suffix[i] = 1 
+        #     else:
+        #         t = 1
+        #         for j in range(len(suffix),i,-1):
+        #             t *= j
+        #         suffix[i] = t
+        
