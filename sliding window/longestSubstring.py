@@ -20,4 +20,14 @@ class Solution:
         #         d[s[i]] = 1
         #     c = max(c,len(d.keys()))
         # return c 
-                
+    # i = 0
+        # while i < len(s):
+        #     j = i
+        #     while s[i] not in d:
+        #         d[s[i]] = 1
+        #         i+=1
+        #     if s[j] in d and j<=i:
+        #         j+=1
+        #         d[s[j]]-=1
+        #     i+=1
+        # return len(d.keys())
