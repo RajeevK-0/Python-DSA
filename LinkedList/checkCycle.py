@@ -13,3 +13,10 @@ class Solution:
             if slow == fast:
                 return True
         return False
+    # temp = head
+        # for i in range(1,1001):
+        #     if temp is None or temp.next is None:
+        #         return False
+        #     else:
+        #         temp = temp.next
+        # return True
