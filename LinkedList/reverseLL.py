@@ -14,3 +14,12 @@ class Solution:
             newHead = temp
             temp = nextNode
         return newHead
+    # temp = self.head
+        # newHead =  self.head
+        # if temp is None or temp.next is None:
+        #         return temp
+        # while temp.next.next is not None:
+        #     t = temp.next.next
+        #     temp.next.next = temp
+        #     temp = temp.next
+        # self.head = temp.next.next
