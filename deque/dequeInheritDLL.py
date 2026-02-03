@@ -1,5 +1,5 @@
-from circularDoubleLinkedList import *
-class deque(doublyCircularLinkedList):
+from doublyLinkedList import *
+class deque(doublyLinkedList):
     def __init__(self, start=None):
         super().__init__(start)
         self.count = 0
@@ -7,10 +7,10 @@ class deque(doublyCircularLinkedList):
     def isEmpty(self):
         return super().isEmpty()
     def insert_front(self,item):
-        self.insertAtStart(item=item)
+        self.insertAtstart(item=item)
         self.count += 1
     def insert_rear(self,item):
-        self.insertAtEnd(item=item)
+        self.rear = self.insertAtLast(item=item)
         self.count += 1
     def del_front(self):
         d = self.delFirst()
@@ -18,12 +18,22 @@ class deque(doublyCircularLinkedList):
         return d
     def del_rear(self):
         d = self.delLast()
+        t = self.start
+        while t is not None:
+            if t.next == None:
+                self.rear = t
+            t = t.next
         self.count-=1
         return d
     def get_front(self):
         return self.start.item
     def get_rear(self):
-        return self.start.prev.item
+        t = self.start
+        while t is not None:
+            if t.next is None:
+                self.rear = t
+            t = t.next
+        return self.rear.item
     def size(self):
         return self.count
 if __name__ == "__main__":
