@@ -11,7 +11,6 @@ class doublyLinkedList:
         if self.start is not None:
             self.start.prev = n
         self.start = n 
-        
     def isEmpty(self):
         return True if self.start == None else False
     def insertAtLast(self,item):
@@ -52,22 +51,28 @@ class doublyLinkedList:
         if self.start is None:
             print('DLL empty')
         else:
+            d = self.start.item
             temp = self.start.next
             self.start.next = None
             self.start = temp
+            return d
     
     def delLast(self):
         if self.start is None:
             print('DLL empty')
 
         elif self.start.next == None:
+            d = self.start.item
             self.start = None
+            return d
         else:
             temp = self.start.next
             while temp is not None:
                 if temp.next.next == None:
+                    d = temp.next.item
                     # temp.next.prev = None
                     temp.next = None
+                    return d
                 temp = temp.next
     
     # def delNode(self,item):
