@@ -80,17 +80,18 @@ class BST:
             return self.rsearch(root.right,item)
     
     def deletion(self,item):
-        t = self.search(item)
-        if t.right == None and t.left == None:
-            t.val = None
-        elif t.left is None:
-            t.val = t.right.val
-        elif t.right is None:
-            t.val = t.left.val
-        else:
-            minValue = self.MinVal(t.right)
-            t.val = minValue.val
-            self.deletion(t.right,minValue)
+        pass
+        # t = self.search(item)
+        # if t.right == None and t.left == None:
+        #     t.val = None
+        # elif t.left is None:
+        #     t.val = t.right.val
+        # elif t.right is None:
+        #     t.val = t.left.val
+        # else:
+        #     minValue = self.MinVal(t.right)
+        #     t.val = minValue.val
+        #     self.deletion(t.right,minValue)
 
 if __name__ == "__main__":
     tr = BST()
