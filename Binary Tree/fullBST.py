@@ -120,5 +120,6 @@ if __name__ == "__main__":
     print(tr.postorder())
     print(tr.preorder())
     print(tr.search(190).left.val)
+    print("*"*20)
     tr.deletion(170)
     print(tr.inorder())
