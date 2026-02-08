@@ -1,3 +1,4 @@
+from collections import deque
 class Node:
     def __init__(self,val = None,left = None,right = None):
         self.val = val
@@ -108,6 +109,20 @@ class BST:
             root.val = t.val
             root.right = self.rdelete(root.right,t.val)
         return root
+    def BFS(self):
+        if self.root is None:
+            return []
+        res = []
+        q = deque([self.root])
+        while q:
+            for i in range(len(q)):
+                n = q.popleft()
+                res.append(n.val)
+                if n.left:
+                    q.append(n.left)
+                if n.right:
+                    q.append(n.right)
+        return res
 if __name__ == "__main__":
     tr = BST()
     tr.insert(100)
@@ -123,3 +138,4 @@ if __name__ == "__main__":
     print("*"*20)
     tr.deletion(170)
     print(tr.inorder())
+    print(tr.BFS())
