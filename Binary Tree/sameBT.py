@@ -6,16 +6,27 @@
 #         self.right = right
 
 class Solution:
-    def trav(self,root,l):
-        if root is None:
-            l.append(None)
-        else:
-            l.append(root.val)
-            self.trav(root.left,l)
-            self.trav(root.right,l)
-        return l
+    # def trav(self,root,l):
+    #     if root is None:
+    #         l.append(None)
+    #         return l
+    #     l.append(root.val)
+    #     self.trav(root.left,l)
+    #     self.trav(root.right,l)
+    #     return l
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        return self.trav(p,[]) == self.trav(q,[])
+        if p is None and q is None:
+            return True
+        if p is None or q is None:
+            return False
+        if p and q and p.val == q.val:
+            if self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right):        
+                return True
+        return False
+
+        # return self.trav(p,[]) == self.trav(q,[])
+
+
         # if p is None and q is None:
         #     return True
         # if p is None:
