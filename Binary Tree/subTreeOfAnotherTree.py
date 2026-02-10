@@ -6,14 +6,14 @@
 #         self.right = right
 
 class Solution:  
-    def trav(self,root,l):
-        if root is None:
-            l.append(None)
-        else:
-            l.append(root.val)
-            self.trav(root.left,l)
-            self.trav(root.right,l)
-        return l
+    # def trav(self,root,l):
+    #     if root is None:
+    #         l.append(None)
+    #     else:
+    #         l.append(root.val)
+    #         self.trav(root.left,l)
+    #         self.trav(root.right,l)
+    #     return l
     def sameTree(self,root,subroot):
         if root is None and subroot is None:
             return True
