@@ -16,6 +16,13 @@ class Solution:
     # def search(self,root,n):
     #     return self.rsearch(root,n)
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        # if root is None:
+        #     return root
+        # if p.val < root.val and q.val < root.val:
+        #     return self.lowestCommonAncestor(root.left,p,q)
+        # if p.val > root.val and q.val > root.val:
+        #     return self.lowestCommonAncestor(root.right,p,q)
+        # return root
         temp = root
         while temp:
             if temp.val < p.val and temp.val < q.val:
