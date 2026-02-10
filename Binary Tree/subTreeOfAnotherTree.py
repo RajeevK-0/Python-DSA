@@ -31,6 +31,6 @@ class Solution:
         if subRoot is None:
             return True    
         if root and subRoot and root.val == subRoot.val:
-            if self.sameTree(root.left,subRoot.left) and self.sameTree(root.right,subRoot.right):
+            if self.sameTree(root,subRoot):
                 return True
         return self.isSubtree(root.left,subRoot) or self.isSubtree(root.right,subRoot)
