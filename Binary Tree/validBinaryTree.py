@@ -6,41 +6,6 @@
 #         self.right = right
 
 class Solution:
-    # def bst(self,root,mn,mx):
-    #     if root is None:
-    #         return True
-    #     self.bst(root.left,min(root.val,mn),max(root.val,mx))
-    #     self.bst(root.right,min(root.val,mn),max(root.val,mx))
-    #     if root.val >= mn and root.val < mx:
-    #         return True
-    #     else:
-    #         return False
-    # def minVal(self,root):
-    #     mn = 1001
-    #     if root is None:
-    #         return 0
-    #     curr = root
-    #     while curr:
-    #         mn = min(curr.val,mn)
-    #         curr = curr.left
-    #     return mn
-    # def maxVal(self,root):
-    #     mx = -1001
-    #     if root is None:
-    #         return 0
-    #     curr = root
-    #     while curr:
-    #         mx = max(curr.val,mx)
-    #         curr = curr.right
-    #     return mx
-    # def leftTree(self,root,mn,mx):
-    #     if root is None:
-    #         return 0
-    #     self.leftTree(root.left,mn,mx)
-    #     self.leftTree(root.right,mn,mx)
-    #     return mn = min(root.val,mn)
-    #     return mx = max(root.val,mx)
-    #     if root.val > 
     class NodeInfo:
         def __init__(self,minimum = float('inf'),maximum = float('-inf'),valid = True):
             self.minimum = minimum
