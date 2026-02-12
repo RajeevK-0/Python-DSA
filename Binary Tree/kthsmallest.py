@@ -17,6 +17,7 @@ class Solution:
             self.count = count
             self.kelement = kelement
     def trav(self,root):
+        pass
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         res = []
 
