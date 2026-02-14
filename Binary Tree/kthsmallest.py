@@ -45,4 +45,7 @@ class Solution:
         trav(root)
         return self.result
 
-        
+        # return self.trav(root,k).kelement
+        # res =[]
+        # self.inOrd(root,k,res)
+        # return res[k-1] 
