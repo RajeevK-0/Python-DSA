@@ -20,7 +20,8 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         if not preorder and not inorder:
             return None
+         #to store index and node val 
         d = {}
         for i in range(len(inorder)):
             d[inorder[i]] = i
-        return self.trav(preorder,0,len(preorder)-1,inorder,0,len(inorder)-1,d)
+        return self.trav(preorder,0,len(preorder)-1,inorder,0,len(inorder)-1,d) #tree node return
