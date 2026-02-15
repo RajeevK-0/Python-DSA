@@ -6,7 +6,7 @@
 #         self.right = right
 
 class Solution:
-    
+    #using start and end pointer on both pre and in order list 
     def trav(self,preorder,ps,pe,inorder,Is,Ie,d):
         if ps > pe or Is > Ie:
             return None
@@ -24,4 +24,5 @@ class Solution:
         d = {}
         for i in range(len(inorder)):
             d[inorder[i]] = i
-        return self.trav(preorder,0,len(preorder)-1,inorder,0,len(inorder)-1,d) #tree node return
+        #tree node return
+        return self.trav(preorder,0,len(preorder)-1,inorder,0,len(inorder)-1,d) 
