@@ -18,5 +18,4 @@ class Solution:
                 if num in boxes[box_index]:
                     return False
                 boxes[box_index].add(num)
-
         return True
