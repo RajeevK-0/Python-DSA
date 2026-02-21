@@ -24,7 +24,23 @@ class Solution:
         count = 0
         visit = set()
         row , col = len(grid),len(grid[0])
-        
+        # def bfs(i,j):
+        #     ans = 1
+        #     dq = deque()
+        #     dq.append((i,j))
+        #     visit.add((i,j))
+        #     while dq:
+        #         r,c = dq.popleft()
+        #         for rw,cl in dir:
+        #             nr , nc = r+rw,c+cl
+        #             if (0<=nr<row and 
+        #                 0<=nc<col and
+        #                 (nr,nc) not in visit and
+        #                 grid[nr][nc] == 1):
+        #                 ans+=1
+        #                 dq.append((nr,nc))
+        #                 visit.add((nr,nc))         
+        #     return ans   
         for i in range(row):
             for j in range(col):
                 if grid[i][j] == 1 and (i,j) not in visit :
