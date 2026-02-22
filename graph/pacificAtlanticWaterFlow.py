@@ -43,3 +43,27 @@ class Solution:
                 if self.pacific(i,j,heights) and self.atlantic(i,j,heights):
                     res.append([i,j])
         return res            
+#optimize solution
+class Solution:
+    def pacific(self,heights,pac,atl):
+        row ,col = len(heights),len(heights[0])
+        visit = set()
+        dq = deque()
+        dir = [[1,0],[-1,0],[0,1],[0,-1]]
+        dq.append(height[0][0])
+        visit.add(height[0][0])
+        while dq:
+            r,c = dq.popleft()
+            for rw , cl in dir:
+                nr , nc = r+rw , c+cl
+                if (nr,nc)not in pac and 0<=nr<row and 0<=nc<col and heights[nr][nc]>=heights[r][c]:
+                    pac.add((nr,nc))
+                if (nr,nc)not in atl and 0<=nr<row and 0<=nc<col and heights[nr][nc]>=heights[r][c]:
+                    atl.add((nr,nc))
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        pac = set()
+        atl = set()
+        row ,col = len(heights),len(heights[0])
+        for i in range(col):
+            pac.add(height[0][i])
+            atl.add(height[row-1][i])
