@@ -45,25 +45,35 @@ class Solution:
         return res            
 #optimize solution
 class Solution:
-    def pacific(self,heights,pac,atl):
-        row ,col = len(heights),len(heights[0])
-        visit = set()
-        dq = deque()
+    def pacific(self,heights,start,row,col):
+        visit = set(start)
+        dq = deque(start)
         dir = [[1,0],[-1,0],[0,1],[0,-1]]
-        dq.append(height[0][0])
-        visit.add(height[0][0])
+        
         while dq:
             r,c = dq.popleft()
-            for rw , cl in dir:
-                nr , nc = r+rw , c+cl
-                if (nr,nc)not in pac and 0<=nr<row and 0<=nc<col and heights[nr][nc]>=heights[r][c]:
-                    pac.add((nr,nc))
-                if (nr,nc)not in atl and 0<=nr<row and 0<=nc<col and heights[nr][nc]>=heights[r][c]:
-                    atl.add((nr,nc))
+            for rw,cl in dir:
+                nr,nc = rw+r , cl+c
+                if 0<=nr<row and 0<=nc<col and (nr,nc) not in visit and heights[nr][nc]>=heights[r][c]:
+                    visit.add((nr,nc))
+                    dq.append((nr,nc))
+        return visit
+
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        pac = set()
-        atl = set()
+        pac = []
+        atl = []
+        res = []
         row ,col = len(heights),len(heights[0])
         for i in range(col):
-            pac.add(height[0][i])
-            atl.add(height[row-1][i])
+            pac.append((0,i))
+            atl.append((row-1,i))
+        for i in range(row):
+            pac.append((i,0))
+            atl.append((i,col-1))
+        nPac = self.pacific(heights,pac,row,col)
+        natl = self.pacific(heights,atl,row,col)
+        for i in range(row):
+            for j in range(col):
+                if (i,j) in nPac and (i,j) in natl:
+                    res.append([i,j])
+        return res 
