@@ -5,10 +5,8 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 """
-
 class Solution:
-    def dfs(self,node,d):
-        
+    def dfs(self,node,d):     
         if node in d:
             return node
         NewNode = Node()
