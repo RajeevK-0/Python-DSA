@@ -10,6 +10,10 @@ class Solution:
             return True
         return False
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        #if no node is given even then its a valid tree
+        if not n:
+            return True
+        #edges are number of node-1 so if they dont match they arent valid tree
         if n-1 != len(edges):
             return False
         d = {i:[] for i in range(n) }
