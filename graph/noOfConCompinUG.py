@@ -25,4 +25,4 @@ class Solution:
                 count+=1
                 self.dfs(visit,d,i)
         return count
-         
+#union find (disjoint set) algo 
