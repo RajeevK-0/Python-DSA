@@ -28,3 +28,12 @@ print(quickSort(j))
 #     return left+p+right
 # j = [25,37,11,14,60,82,18,41]
 # print(QuickSort(j))
+def quick(a):
+    if len(a) <= 1 : 
+        return a
+    p = a[0]
+    left = [x for x in a[1:] if x<=p]
+    right = [x for x in a[1:] if x>p]
+    return quick(left)+[p]+quick(right)
+j = [60,50,20,10,100,90,30]
+print(quick(j)) 
