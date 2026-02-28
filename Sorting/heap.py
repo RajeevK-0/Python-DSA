@@ -1,6 +1,6 @@
 class heap:
     def __init__(self,hlist = []):
-        self.hlist = hlist
+        self.hlist = hlist if hlist is not None else []
     def createHeap(self,list):
         for i in list:
             self.insert(i)
@@ -20,19 +20,16 @@ class heap:
             self.hlist[index] = ele
     def topElement(self):
         if len(self.hlist) == 0:
-            raise self.EmptyHeapException
+            raise EmptyHeapException()
         return self.hlist[0]
     
-    class EmptyHeapException(Exception):
-        def __init__(self,msg = "heap is empty"):
-            self.msg = msg
-        def __str__(self):
-            return self.msg
     def deletion(self):
-        if self.hlist is None:
-            raise self.EmptyHeapException
+        if len(self.hlist) == 0:
+            raise EmptyHeapException()
         maxVal= self.hlist[0]
         temp = self.hlist.pop()
+        if len(self.hlist) == 0:
+            return maxVal
         index = 0
         child1 = 2*index+1
         child2 = 2*index+2
@@ -46,7 +43,7 @@ class heap:
                         break
                 else:
                     if self.hlist[child2]>temp:
-                        self.hlist[index] = self.hlist[child1]
+                        self.hlist[index] = self.hlist[child2]
                         index = child2
                     else:
                         break
@@ -67,10 +64,14 @@ class heap:
         try:
             while True:
                 list2.insert(0,self.deletion())
-        except self.EmptyHeapException:
+        except EmptyHeapException:
             pass
         return list2
-
+class EmptyHeapException(Exception):
+    def __init__(self,msg = "heap is empty"):
+        self.msg = msg
+    def __str__(self):
+        return self.msg
 if __name__ == "__main__":
     list1 = [35,56,12,78,43,25,10,80,60]
     h = heap()
