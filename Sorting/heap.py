@@ -77,27 +77,3 @@ if __name__ == "__main__":
     h = heap()
     list1 = h.heapSort(list1)
     print(list1)    
-        # while index < len(self.hlist) and :
-        #     if self.hlist[child1] > self.hlist[child2]:
-        #         if self.hlist[child1] < e:
-        #             self.hlist[index] = e
-        #         self.hlist[index] = self.hlist[child1]
-        #     else:
-        #         if self.hlist[child2] < e:
-        #             self.hlist[index] = e
-        #         self.hlist[index] = self.hlist[child2]
-            
-        # for i in range(len(self.hlist)):
-        #     if self.hlist[i] > ele:
-        #         if self.hlist[2*i+1] is None:
-        #             self.hlist[2*i+1] = ele
-        #         if self.hlist[2*i+2] is None:
-        #             self.hlist[2*i+2] = ele
-        #     else:
-        #         temp = self.hlist[i]
-        #         self.hlist[i] = ele
-        #         if self.hlist[2*i+1] is None:
-        #             self.hlist[2*i+1] = temp
-        #         if self.hlist[2*i+2] is None:
-        #             self.hlist[2*i+2] = temp
-                
