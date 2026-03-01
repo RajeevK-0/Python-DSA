@@ -1,9 +1,11 @@
 class heap:
     def __init__(self,hlist = []):
         self.hlist = hlist if hlist is not None else []
+    
     def createHeap(self,list):
         for i in list:
             self.insert(i)
+    
     def insert(self,ele):
         index = len(self.hlist)
         parentIndex = (index-1)//2
@@ -18,6 +20,7 @@ class heap:
             self.hlist.append(ele)
         else:
             self.hlist[index] = ele
+    
     def topElement(self):
         if len(self.hlist) == 0:
             raise EmptyHeapException()
@@ -72,8 +75,10 @@ class EmptyHeapException(Exception):
         self.msg = msg
     def __str__(self):
         return self.msg
+    
 if __name__ == "__main__":
     list1 = [35,56,12,78,43,25,10,80,60]
     h = heap()
     list1 = h.heapSort(list1)
-    print(list1)    
+    print(list1)
+    
