@@ -1,12 +1,11 @@
-def binary(l1,x):
-    l = 0
-    u = len(l1)-1
+def binary(l1,x,l,u):
     mid = (u+l)//2
+    if l>u:
+        return -1
     if x == l1[mid]:
         return mid
     if x < l1[mid]:
-        u = mid-1
-        binary(l1[:u],x)
+        return binary(l1,x,u,mid-1)
     if x > l1[mid]:
         l = mid+1
-        binary(l1[l:],x)
+        return binary(l1,x,mid+1,u)
