@@ -15,5 +15,4 @@ class Solution:
                 if mat[r][c] == 1:
                     if row_counts[r] == 1 and col_counts[c] == 1:
                         special_count += 1
-                        
         return special_count
