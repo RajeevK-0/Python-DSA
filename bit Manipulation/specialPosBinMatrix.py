@@ -6,7 +6,7 @@ class Solution:
         row_counts = [0] * rows
         col_counts = [0] * cols
         
-        # First pass: Count 1s in each row and column
+       
         for r in range(rows):
             for c in range(cols):
                 if mat[r][c] == 1:
@@ -15,7 +15,7 @@ class Solution:
                     
         special_count = 0
         
-        # Second pass: Identify special positions
+        
         for r in range(rows):
             for c in range(cols):
                 if mat[r][c] == 1:
