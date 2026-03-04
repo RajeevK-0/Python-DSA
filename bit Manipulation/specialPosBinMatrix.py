@@ -1,3 +1,5 @@
+#special position in a Binary Matrix
+#leetcode 1582
 class Solution:
     def numSpecial(self, mat: List[List[int]]) -> int:
         rows = len(mat)
