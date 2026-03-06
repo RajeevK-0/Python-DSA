@@ -1,3 +1,4 @@
+#leetcode 1784
 import numpy as np
 class Solution:
     def checkOnesSegment(self, s: str) -> bool:
