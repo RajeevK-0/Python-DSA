@@ -1,3 +1,5 @@
+# 3129. Find All Possible Stable Binary Arrays I
+#Topic Dp,Presum
 class Solution:
     def numberOfStableArrays(self, zero: int, one: int, limit: int) -> int:
         MOD = 10**9 + 7
