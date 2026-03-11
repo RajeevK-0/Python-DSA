@@ -3,7 +3,6 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
 class Solution:
     def insert(self,node,res):
         n = ListNode(node.val)
@@ -14,24 +13,7 @@ class Solution:
             prev = prev.next
         n.next = prev.next
         prev.next = n
-        return dummy.next
-        # if res is None:
-        #     res = node
-        #     node.next = None
-        # if node.val < res.val:
-        #     t = res
-        #     res = node
-        #     node.next = res    
-        # t = res
-        # while t.val < node.val:
-        #     t = t.next
-        # if not t.next:
-        #     t.next = node
-        #     node.next = None 
-        # temp = t
-        # t = node
-        # node.next = temp
-        # return res        
+        return dummy.next      
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         res = None
         for i in lists:
