@@ -22,3 +22,85 @@ class Solution:
                 res = self.insert(t,res)
                 t = t.next
         return res
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+# class Solution:
+#     def insert(self,node,res):
+#         n = ListNode(node.val)
+#         dummy = ListNode(0)
+#         dummy.next = res
+#         prev = dummy
+#         while prev.next and prev.next.val < node.val:
+#             prev = prev.next
+#         n.next = prev.next
+#         prev.next = n
+#         return dummy.next
+        # if res is None:
+        #     res = node
+        #     node.next = None
+        # if node.val < res.val:
+        #     t = res
+        #     res = node
+        #     node.next = res    
+        # t = res
+        # while t.val < node.val:
+        #     t = t.next
+        # if not t.next:
+        #     t.next = node
+        #     node.next = None 
+        # temp = t
+        # t = node
+        # node.next = temp
+        # return res        
+    # def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    #     res = None
+    #     for i in lists:
+    #         t = i
+    #         while t: 
+    #             res = self.insert(t,res)
+    #             t = t.next
+    #     return res
+
+
+
+############################################################################
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def mergeKLists(self, lists):
+        if not lists or len(lists) == 0:
+            return None
+        return self.divide(lists, 0, len(lists) - 1)
+    def divide(self, lists, l, r):
+        if l > r:
+            return None
+        if l == r:
+            return lists[l]
+        mid = l + (r - l) // 2
+        left = self.divide(lists, l, mid)
+        right = self.divide(lists, mid + 1, r)
+        return self.conquer(left, right)
+    def conquer(self, l1, l2):
+        dummy = ListNode(0)
+        curr = dummy
+        while l1 and l2:
+            if l1.val <= l2.val:
+                curr.next = l1
+                l1 = l1.next
+            else:
+                curr.next = l2
+                l2 = l2.next
+            curr = curr.next
+        if l1:
+            curr.next = l1
+        else:
+            curr.next = l2
+        return dummy.next
