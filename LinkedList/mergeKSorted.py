@@ -22,50 +22,6 @@ class Solution:
                 res = self.insert(t,res)
                 t = t.next
         return res
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
-# class Solution:
-#     def insert(self,node,res):
-#         n = ListNode(node.val)
-#         dummy = ListNode(0)
-#         dummy.next = res
-#         prev = dummy
-#         while prev.next and prev.next.val < node.val:
-#             prev = prev.next
-#         n.next = prev.next
-#         prev.next = n
-#         return dummy.next
-        # if res is None:
-        #     res = node
-        #     node.next = None
-        # if node.val < res.val:
-        #     t = res
-        #     res = node
-        #     node.next = res    
-        # t = res
-        # while t.val < node.val:
-        #     t = t.next
-        # if not t.next:
-        #     t.next = node
-        #     node.next = None 
-        # temp = t
-        # t = node
-        # node.next = temp
-        # return res        
-    # def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-    #     res = None
-    #     for i in lists:
-    #         t = i
-    #         while t: 
-    #             res = self.insert(t,res)
-    #             t = t.next
-    #     return res
-
-
 
 ############################################################################
 # Definition for singly-linked list.
