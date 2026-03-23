@@ -1,3 +1,4 @@
+#solution 1 ---> space 0(n)^2
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
         def rotate(matrix):
@@ -7,11 +8,9 @@ class Solution:
                 return True
             mat = rotate(mat)
         return False
-#sp = o(1)
+#space = o(1)
 class Solution:
-    def findRotation(
-        self, mat: List[List[int]], target: List[List[int]]
-    ) -> bool:
+    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
         n = len(mat)
         # at most 4 rotations
         for k in range(4):
@@ -29,7 +28,6 @@ class Solution:
                         mat[j][n - 1 - i],
                         mat[i][j],
                     )
-
             if mat == target:
                 return True
         return False
