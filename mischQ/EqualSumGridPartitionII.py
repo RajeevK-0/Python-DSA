@@ -238,3 +238,28 @@ class Solution:
         if check(A) or check(A[::-1]): return True
         A = list(zip(*A))
         return check(A) or check(A[::-1])
+###################################################################################
+class Solution:
+    def canPartitionGrid(self, grid: List[List[int]]) -> bool:
+
+        total = sum(sum(row) for row in grid)
+
+        def solve(grid):
+            top = 0
+            seen = set()
+            
+
+            for index, row in enumerate(grid):
+                top += sum(row)
+                seen |= set(row)
+                bottom = total - top
+
+                if top - bottom in (0, grid[index][0], grid[0][0], grid[0][-1]): return True
+                if index > 0 and len(grid[0]) > 1 and top - bottom in seen: return True
+            
+            return False
+        
+        if solve(grid) or solve(grid[::-1]): return True
+        grid = list(zip(*grid))
+        return solve(grid) or solve(grid[::-1])
+        
