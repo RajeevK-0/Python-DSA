@@ -1,11 +1,8 @@
 import math
 from collections import defaultdict
-
 class Solution:
     def __init__(self):
         self.M = 10**9 + 7
-
-    # Binary Exponentiation (Fermat’s Little Theorem)
     def power(self, a, b):
         if b == 0:
             return 1
@@ -14,47 +11,31 @@ class Solution:
         if b % 2 == 1:
             result = (result * a) % self.M
         return result
-
     def xorAfterQueries(self, nums, queries):
         n = len(nums)
         blockSize = math.ceil(math.sqrt(n))
-
         smallKMap = defaultdict(list)
-
-        # Process large K directly
         for L, R, K, V in queries:
             if K >= blockSize:
                 for i in range(L, R + 1, K):
                     nums[i] = (nums[i] * V) % self.M
             else:
                 smallKMap[K].append((L, R, K, V))
-
-        # Process small K using difference trick
         for K, allQueries in smallKMap.items():
             diff = [1] * n
-
             for L, R, _, V in allQueries:
                 diff[L] = (diff[L] * V) % self.M
-
                 steps = (R - L) // K
                 nxt = L + (steps + 1) * K
-
                 if nxt < n:
                     inv = self.power(V, self.M - 2)
                     diff[nxt] = (diff[nxt] * inv) % self.M
-
-            # Build cumulative product (jumping by K)
             for i in range(n):
                 if i - K >= 0:
                     diff[i] = (diff[i] * diff[i - K]) % self.M
-
-            # Apply to nums
             for i in range(n):
                 nums[i] = (nums[i] * diff[i]) % self.M
-
-        # Compute XOR
         result = 0
         for num in nums:
             result ^= num
-
         return result
