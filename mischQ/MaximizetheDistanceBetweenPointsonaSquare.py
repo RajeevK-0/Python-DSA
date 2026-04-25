@@ -1,7 +1,6 @@
 class Solution:
     def maxDistance(self, side: int, points: List[List[int]], k: int) -> int:
         arr = []
-        
         for x, y in points:
             if x == 0:
                 arr.append(y)
@@ -11,9 +10,7 @@ class Solution:
                 arr.append(side * 3 - y)
             else:
                 arr.append(side * 4 - x)
-                
         arr.sort()
-        
         def check(limit: int) -> bool:
             perimeter = side * 4
             for start in arr:
@@ -28,10 +25,8 @@ class Solution:
                 if cur >= 0:
                     return True
             return False
-        
         lo, hi = 1, side
         ans = 0
-        
         while lo <= hi:
             mid = (lo + hi) // 2
             if check(mid):
@@ -39,5 +34,4 @@ class Solution:
                 ans = mid
             else:
                 hi = mid - 1
-                
         return ans
