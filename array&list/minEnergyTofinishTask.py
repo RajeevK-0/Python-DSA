@@ -18,7 +18,4 @@ class Solution:
             
         return initial_energy
         
-        # need = 0
-        # for actual, minimum in reversed(tasks):
-        #     need = max(minimum, need + actual)
-        # return need
+        
