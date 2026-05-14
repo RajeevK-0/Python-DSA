@@ -8,3 +8,9 @@ class Solution:
             if i!=nums[i-1]:
                 return False
         return True
+        # permutation = [i for i in range(1,n+1)]
+            # permutation.append(n)
+            # nums.sort()
+            # if nums == permutation :
+            #     return True
+            # return False
