@@ -11,5 +11,11 @@ class Solution:
                 if 0<= i < len(arr) and i not in visited:
                     visited.add(i)
                     queue.append(i)
-            
+            # if temp+arr[temp] <len(arr) or temp-arr[temp] >= 0:
+            #     if temp+arr[temp] < len(arr) and temp+arr[temp] not in visited:
+            #         visited.add(temp+arr[temp])
+            #         queue.append(temp+arr[temp])
+            #     if temp-arr[temp] >= 0 and temp-arr[temp] not in visited:
+            #         visited.add(temp-arr[temp])
+            #         queue.append(temp-arr[temp])
         return False
