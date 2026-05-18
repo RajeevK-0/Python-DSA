@@ -55,4 +55,34 @@ class Solution:
             steps += 1
             
         return -1
+        # mp = {}
+        # for i in range(len(arr)):
+        #     if arr[i] in mp:
+        #         mp[arr[i]].append(i)
+        #     else:
+        #         mp[arr[i]] = [i]
+        # visited = set()
+        # queue = deque()
+        # queue.append(0)
+        # i = 0
+        # ans = 0
+        # while queue:
+        #     t = queue.popleft()
+        #     visited.add(t)
+        #     if i == len(arr)-1:
+        #         return ans
+        #     if mp[arr[t]][-1] != t:
+        #         i = mp[arr[t]][-1]
+        #         visited.add(i)
+        #         queue.append(mp[arr[t]][-1])
+        #         ans += 1
+        #     else:
+        #         for j in (t-1 , t+1):
+        #             if (0<= j < len(arr) and j+2 > len(arr)-1 ) or (0<= j < len(arr) and j-2 <0) or (0<= j < len(arr) and mp[arr[j]][-1] > mp[arr[j+2]][-1] )or (0<= j < len(arr) and mp[arr[j]][-1] > mp[arr[j-2]][-1] ) :
+        #                 i = j
+        #                 visited.add(j)
+        #                 queue.append(j)
+        #                 ans+=1
+
+
         
