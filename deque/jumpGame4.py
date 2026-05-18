@@ -85,4 +85,25 @@ class Solution:
         #                 ans+=1
 
 
-        
+        # while i < len(arr):
+        #     if i == len(arr)-1:
+        #         return ans
+        #     t = queue.popleft()
+        #     pos = mp[arr[t]][-1]
+        #     if pos != t : 
+        #         queue.append(arr[pos])
+        #         i = pos
+        #         ans+=1
+        #     elif pos == t and t !=0:
+        #         for j in (t-1,t+1):
+        #             if mp[arr[j]][-1] >= mp[arr[j+2][-1]] or mp[arr[j]][-1] >= mp[arr[j-2][-1]]  :
+        #                 visited.add(arr[j])
+        #                 queue.append(j)
+        #                 i = j
+        #                 ans+=1
+        #     else:
+        #         visited.add(arr[t+1])
+        #         queue.append(t+1)
+        #         i = t+1
+        #         ans+=1
+
