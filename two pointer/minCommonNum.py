@@ -28,3 +28,31 @@ class Solution:
         #         p2 += 1
         
         # return -1
+        #m3
+        # s1 = set(nums1)
+        # s2 = set(nums2)
+        # if len(s1)>len(s2):
+        #     for i in s1:
+        #         if i in s2:
+        #             return i 
+        # else:
+        #     for i in s2:
+        #         if i in s1:
+        #             return i
+        # return -1
+        # mp1 = {i : 1 for i in nums1}
+        # mp2 = {i : 1 for i in nums2}
+        # x = len(mp1)
+        # y = len(mp2)
+        # ans = -1
+        # if x >= y:
+        #     for i in mp1.keys():
+        #         if i in mp2:
+        #             ans = i
+        #             break
+        # else:
+        #     for i in mp2.keys():
+        #         if i in mp1:
+        #             ans = i
+        #             break
+        # return ans
