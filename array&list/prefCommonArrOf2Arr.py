@@ -32,3 +32,16 @@ class Solution:
         #         com+=1
         #     c.append(com)
         # return c
+        #method 3
+        # counts = [0]*(len(A)+1)
+        # common = 0
+        # C = []
+        # for a,b in zip(A,B):
+        #     counts[a]+=1
+        #     if counts[a]==2:
+        #         common+=1
+        #     counts[b]+=1
+        #     if counts[b]==2:
+        #         common+=1
+        #     C.append(common)
+        # return C
