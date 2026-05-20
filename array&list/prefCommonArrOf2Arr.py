@@ -16,18 +16,4 @@ class Solution:
             #     com+=1
             c.append(com)
         return c
-        # c = []
-        # ma = {}
-        # mb = {}
-        # com = 0
-        # for i in range(len(A)):
-        #     ma[A[i]] = i
-        #     mb[B[i]] = i
-        #     if A[i] == B[i] :
-        #         com +=1
-        #     if (A[i] in mb and A[i] != B[i] ) :
-        #         com+=1
-        #     if (B[i] in ma and A[i] != B[i]):
-        #         com+=1
-        #     c.append(com)
-        # return c
+        
