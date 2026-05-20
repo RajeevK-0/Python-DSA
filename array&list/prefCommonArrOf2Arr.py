@@ -12,7 +12,7 @@ class Solution:
                 com+=1
             else:
                 s.add(B[i])
-            # if A[i] == B[i]:
+            # if A[i] == B[i]: <--------- if want to elaborate steps like this use and in above if's and keep check that a!=b
             #     com+=1
             c.append(com)
         return c
@@ -26,7 +26,7 @@ class Solution:
         #     mb[B[i]] = i
         #     if A[i] == B[i] :
         #         com +=1
-        #     if (A[i] in mb and A[i] != B[i] ) :
+        #     if (A[i] in mb and A[i] != B[i] ) : 
         #         com+=1
         #     if (B[i] in ma and A[i] != B[i]):
         #         com+=1
