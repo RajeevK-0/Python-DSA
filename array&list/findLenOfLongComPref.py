@@ -24,7 +24,7 @@ class Solution:
     # def isPrefix(self,x,y):
     #     n = len(str(x))
     #     t = len(str(y))
-    #     if n > t:
+    #     if n > t:   <--------- need to check for both x and y which ever is large swap them
     #         return (False,0)
     #     if x == (y//(10*(t-n))):
     #         return (True , n)
