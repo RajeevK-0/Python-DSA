@@ -1,23 +1,4 @@
 class Solution:
-    # def isPrefix(self,x,y):
-    #     n = len(str(x))
-    #     t = len(str(y))
-    #     if n > t:
-    #         return (False,0)
-    #     if x == (y//(10*(t-n))):
-    #         return (True , n)
-    #     else:
-    #         if x != (y//(10*(t-n))) and len(str(x)) ==1:
-    #             return (False,0)
-    #         x = x//10
-    #         while x >0:
-    #             n = len(str(x))
-    #             if x == (y//(10*(t-n))):
-    #                 return (True , n)
-    #             if n == 1 :    
-    #                 return (False,0)
-    #             x = x//10
-    #     return (False,0)
     def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
         prefixes = set()
         
