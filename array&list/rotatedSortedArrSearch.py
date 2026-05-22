@@ -46,3 +46,29 @@ class Solution:
 #                 else:
 #                     high = mid-1
 #         return -1
+
+#m3
+# class Solution:
+#     def search(self, nums: List[int], target: int) -> int:
+#         if not nums:
+#             return -1
+        
+#         left, right = 0, len(nums) - 1
+
+#         while left <= right:
+#             middle = left + (right - left) // 2
+
+#             if nums[middle] == target:
+#                 return middle
+#             elif nums[middle] >= nums[left]:  # First half
+#                 if nums[left] <= target < nums[middle]:
+#                     right = middle - 1
+#                 else:
+#                     left = middle + 1
+#             else:  # Second half
+#                 if nums[middle] < target <= nums[right]:
+#                     left = middle + 1
+#                 else:
+#                     right = middle - 1
+
+#         return -1
