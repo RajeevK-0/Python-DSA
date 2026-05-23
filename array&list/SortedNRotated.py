@@ -16,25 +16,4 @@ class Solution:
             
         return n==1
         
-        
-    
-        # simple = False
-        # last = nums[0]
-        # i = 1
-        # while i < len(nums) 
-        #     if nums[i] >= last:
-        #         i+=1
-        #     else:
-        #         break
-        #     if i == len(nums)-1:
-        #         simple = True
-        # # i,j = 0,len(nums)-1
-        # # while i<j:
-        # #     mid = (i+j)//2
-        # #     if nums[i] > nums[j]:
-        # #         if nums[mid] < nums[j]:
-        # #             j = mid-1
-        # #         else:
-        # #             i = mid+1
-        # #     else:
-        # #         if mid 
+      
