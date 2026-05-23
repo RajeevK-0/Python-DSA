@@ -24,4 +24,16 @@ class Solution:
 #             if nums[i] > nums[(i + 1) % n]:
 #                 count += 1
 #         return count <= 1
-      
+#m3
+# class Solution:
+#     def check(self, nums: List[int]) -> bool:
+#         cnt = 0
+#         for i in range(1, len(nums)):
+#             if nums[i] < nums[i - 1]:
+#                 cnt += 1
+#             if cnt == 1 and nums[-1] > nums[0]:
+#                 return False
+#             if cnt > 1:
+#                 return False
+#         return True
+        
