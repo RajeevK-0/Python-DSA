@@ -36,3 +36,15 @@ class Solution:
         #     if num==2:
         #         ans+=1
         # return ans
+    ##################
+    # seen = set()
+    #     counted = set()
+    #     count = 0
+
+    #     for letter in word:
+    #         other = letter.swapcase()
+    #         if other in seen and letter.lower() not in counted:
+    #             count += 1
+    #             counted.add(letter.lower())
+    #         seen.add(letter)
+    #     return count
