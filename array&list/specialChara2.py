@@ -16,4 +16,10 @@ class Solution:
                             ans+=1 
                             vis[ord(i)-97] = 1
         return ans
-        
+        # s = set(word)'
+        # ans = 0
+        # for i in s:
+        #     if i != i.upper():
+        #         if i.upper() in s:
+        #             ans +=1
+        # return ans
